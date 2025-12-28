@@ -42,7 +42,7 @@ const Hero: React.FC = () => {
             Gathering
           </h1>
           <p className="mx-auto hidden max-w-xl text-sm text-gray-300 md:block md:text-lg">
-            Exclusive entry for the 31st Collective creative community.
+            Exclusive entry for the 30th Collective creative community.
           </p>
         </div>
 
