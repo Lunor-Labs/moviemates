@@ -291,7 +291,7 @@ const App: React.FC = () => {
       )}
 
       <footer className="mt-6 border-t border-surface-highlight p-6 text-center text-gray-600 text-[10px] md:mt-10 md:p-10 md:text-xs">
-        &copy; 2025 Movie Mates. Gate Management System. Powered by <a href="https://www.lunorlabs.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">lunorlabs.com</a>
+        &copy; 2025 Movie Mates. Gate Management System. Powered by <a href="https://www.lunorlabs.com" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:text-primary/80 transition-colors">lunorlabs.com</a>
       </footer>
     </div>
   );
