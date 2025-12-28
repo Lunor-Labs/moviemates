@@ -16,7 +16,7 @@ const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
-  const [scriptUrl, setScriptUrl] = useState<string>(localStorage.getItem('gas_script_url') || '');
+  const [scriptUrl, setScriptUrl] = useState<string>(localStorage.getItem('gas_script_url') || 'https://script.google.com/macros/s/AKfycbwuqJFQBzJozp-CwWbbGvvegh-7zcvEuREmPSZPTj4RkYBL0hYJiisou0xMyYKWKSw/exec');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [tempUrl, setTempUrl] = useState(scriptUrl);
 
