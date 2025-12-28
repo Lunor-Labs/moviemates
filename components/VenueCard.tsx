@@ -6,7 +6,7 @@ const VenueCard: React.FC = () => {
   return (
     <div className="rounded-2xl bg-gradient-to-br from-primary/20 to-surface-dark p-6 border border-primary/20">
       <h3 className="mb-2 text-lg font-bold text-white">Venue Details</h3>
-      <p className="text-sm text-gray-300 mb-4">The Grand Atrium, Downtown Arts District</p>
+      <p className="text-sm text-gray-300 mb-4">Colombo, Sri Lanka</p>
       <div className="aspect-video w-full rounded-xl bg-surface-highlight overflow-hidden relative">
         <img 
           alt="Venue Location" 

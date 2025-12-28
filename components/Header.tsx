@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({ onOpenSettings, hasUrl }) => {
           <span className="material-symbols-outlined">celebration</span>
         </div>
         <div>
-          <h2 className="text-lg font-bold leading-tight tracking-tight text-white">The 31st Collective</h2>
+          <h2 className="text-lg font-bold leading-tight tracking-tight text-white">Movie Mates</h2>
           <p className="text-xs text-gray-400">Guest Management</p>
         </div>
       </div>
