@@ -1,0 +1,8 @@
+{
+  "name": "The 31st Collective Guest Manager",
+  "description": "An exclusive event guest management dashboard with real-time RSVP tracking and smart guest search.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
