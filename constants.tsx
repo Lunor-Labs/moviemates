@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-export const EVENT_DATE = new Date('2025-12-31T21:00:00');
+export const EVENT_DATE = new Date('2025-12-30T21:00:00');
 
 export const COLORS = {
   primary: '#8c2bee',
