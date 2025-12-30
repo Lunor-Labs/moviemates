@@ -10,10 +10,11 @@ interface GuestItemProps {
 const GuestItem: React.FC<GuestItemProps> = ({ guest, onUpdateStatus }) => {
   const [isUpdating, setIsUpdating] = useState(false);
   const isCheckedIn = guest.status === GuestStatus.CONFIRMED;
+  const isLocked = guest.locked || isCheckedIn; // Lock confirmed guests
 
   const handleToggle = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (isUpdating) return;
+    if (isUpdating || isLocked) return;
     const newStatus = isCheckedIn ? GuestStatus.PENDING : GuestStatus.CONFIRMED;
     setIsUpdating(true);
     try {
@@ -24,12 +25,14 @@ const GuestItem: React.FC<GuestItemProps> = ({ guest, onUpdateStatus }) => {
   };
 
   return (
-    <div 
+    <div
       onClick={handleToggle}
       className={`group relative flex items-center justify-between gap-3 rounded-2xl border p-3 transition-all duration-300 md:p-4 ${
-        isCheckedIn 
-          ? 'border-green-500/30 bg-green-500/5' 
-          : 'border-surface-highlight bg-surface-dark hover:border-primary/50'
+        isCheckedIn
+          ? 'border-green-500/30 bg-green-500/5'
+          : isLocked
+            ? 'border-gray-500/30 bg-gray-500/5 cursor-not-allowed opacity-75'
+            : 'border-surface-highlight bg-surface-dark hover:border-primary/50 cursor-pointer'
       }`}
     >
       {isUpdating && (
@@ -58,18 +61,28 @@ const GuestItem: React.FC<GuestItemProps> = ({ guest, onUpdateStatus }) => {
       </div>
 
       <div className="flex shrink-0 items-center gap-3">
-        <span className={`hidden text-[9px] font-black uppercase tracking-widest lg:block ${isCheckedIn ? 'text-green-500' : 'text-gray-500'}`}>
-          {isCheckedIn ? 'Arrived' : 'Expected'}
+        <span className={`hidden text-[9px] font-black uppercase tracking-widest lg:block ${
+          isCheckedIn ? 'text-green-500' : isLocked ? 'text-gray-400' : 'text-gray-500'
+        }`}>
+          {isCheckedIn ? 'Arrived' : isLocked ? 'Locked' : 'Expected'}
         </span>
         
         {/* iOS Style Toggle */}
-        <div 
+        <div
           className={`relative h-6 w-11 rounded-full transition-all duration-300 md:h-8 md:w-14 ${
-            isCheckedIn ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]' : 'bg-surface-highlight'
+            isCheckedIn
+              ? 'bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.3)]'
+              : isLocked
+                ? 'bg-gray-500 cursor-not-allowed'
+                : 'bg-surface-highlight'
           }`}
         >
-          <div className={`absolute top-0.5 size-5 rounded-full bg-white shadow-md transition-all duration-300 ease-out md:top-1 md:size-6 ${
-            isCheckedIn ? 'left-[22px] md:left-7' : 'left-0.5 md:left-1'
+          <div className={`absolute top-0.5 size-5 rounded-full shadow-md transition-all duration-300 ease-out md:top-1 md:size-6 ${
+            isCheckedIn
+              ? 'left-[22px] md:left-7 bg-white'
+              : isLocked
+                ? 'left-[22px] md:left-7 bg-gray-400 cursor-not-allowed'
+                : 'left-0.5 md:left-1 bg-white'
           }`}></div>
         </div>
       </div>

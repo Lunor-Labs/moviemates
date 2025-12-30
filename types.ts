@@ -11,6 +11,7 @@ export interface Guest {
   discipline: string;
   status: GuestStatus;
   avatar: string;
+  locked?: boolean; // True if status has been confirmed and cannot be changed
 }
 
 export interface AttendanceStats {
