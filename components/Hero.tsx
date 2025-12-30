@@ -51,8 +51,15 @@ const Hero: React.FC = () => {
           </span>
         </div>
 
-        {/* Countdown */}
+        {/* Top Title */}
         <div className="relative z-10 mb-0 md:mb-2 flex justify-center gap-2 md:gap-4">
+          <span className="text-xl font-black uppercase tracking-[0.3em] bg-gradient-to-r from-primary via-purple-300 to-primary bg-clip-text text-transparent md:text-3xl animate-pulse drop-shadow-lg">
+            WELCOME
+          </span>
+        </div>
+
+        {/* Countdown */}
+        {/* <div className="relative z-10 mb-0 md:mb-2 flex justify-center gap-2 md:gap-4">
           {[
             { label: 'D', value: formatNum(timeLeft.days) },
             { label: 'H', value: formatNum(timeLeft.hours) },
@@ -71,7 +78,7 @@ const Hero: React.FC = () => {
               </span>
             </div>
           ))}
-        </div>
+        </div> */}
 
       </div>
     </div>
